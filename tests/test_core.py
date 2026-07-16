@@ -1,8 +1,9 @@
-from hypothesis import given
+from hypothesis import given, settings, Verbosity
 from hypothesis import strategies as st
 from src.core import double_even_numbers
 
 @given(st.lists(st.integers()))
+@settings(verbosity=Verbosity.verbose)  # <--- Включает детальный вывод
 def test_double_even_numbers_properties(nums):
     result = double_even_numbers(nums)
     
